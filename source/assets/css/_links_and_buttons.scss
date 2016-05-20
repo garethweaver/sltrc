@@ -1,9 +1,5 @@
 a {
-  color:$color-link; text-decoration:none;
-  // position:relative;
-  // &:after { content:''; position:absolute; height:1px; background:$color-link; bottom:0; left:0; width:0; transition:width 0.2s; }
-  // &:hover:after { width:100%; }
-  cursor:pointer;
+  color:$color-link; text-decoration:none; cursor:pointer;
   &.btn {
     color:white; text-decoration:none; padding:1.2em 1.2em; display:inline-block; box-shadow:0 0 0 4px rgba(white,0.3); border-radius:$br; line-height:30px; transition:all 0.2s; font-weight:bold; margin:1em; font-size:16px;
     text-align:center; width:180px;
@@ -13,8 +9,8 @@ a {
       &:hover { background:lighten($color-fb,8%); }
     }
     &.map {
-      background:$color-map;
-      &:hover { background:lighten($color-map,8%); }
+      background:$color-secondary;
+      &:hover { background:lighten($color-secondary,8%); }
     }
     &.rules {
       background:$color-rules;
