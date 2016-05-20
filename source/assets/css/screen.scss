@@ -1,0 +1,142 @@
+@import 'normalize';
+
+$screen-xs-min: 480px;
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
+$margin: 4rem;
+$color-bg: #2d2925;
+$color-fb: #43548c;
+$color-map: #22a363;
+$color-rules: #c0392b;
+$color-link: #fffb8a;
+$br: 10px;
+$font-size-small: 12px;
+$menu-width:200px;
+
+@import 'menus_and_wrappers';
+@import 'links_and_buttons';
+@import 'animations_and_mixins';
+
+%coda { font-family:'Coda', cursive; text-transform:uppercase; }
+%respond { display:block; width:100%; }
+.text-center { text-align:center; }
+.hidden-sm {
+ display:none !important;
+  @include mobile-first($screen-lg-min) { display:inline-block !important; }
+}
+
+
+body {
+  font-family:'Roboto', sans-serif; background:$color-bg; font-size:14px; line-height:1.6; color:white;
+  @include mobile-first($screen-lg-min) { font-size:18px; }
+}
+
+footer {
+  padding:30px 0 30px;
+  nav { margin-bottom:40px; }
+  .footer-text { font-size:$font-size-small; }
+  @include mobile-first($screen-lg-min) { padding:60px 0; }
+  span { margin:0 10px; }
+}
+
+h1 { @extend %coda; }
+
+// #map {
+//   height:300px; margin-bottom:40px; border-radius:$br;
+//   .info-window { color:#333; text-align:center; font-size:16px; font-family:'Coda', cursive; text-transform:uppercase; max-width:200px; padding-left:20px; }
+// }
+
+body.home {
+  .intro { min-height:calc(100vh - 60px); display:flex; align-items:center; justify-content:center; padding:10px 0 120px; box-sizing:border-box; position:relative; }
+  h1 { font-size:2.2em; line-height:1.2; margin:0 0 40px 0; }
+  h1 span { display:block; font-size:1.2rem; }
+  h2.sub-head { line-height:1.6; font-size:1.1rem; font-weight:normal; font-family:'Roboto', sans-serif; text-transform:none; }
+
+  @include mobile-first($screen-sm-min) {
+    h1 { margin:0 0 60px; font-size:4rem; line-height:1.1; }
+    h1 span { font-size:2.3rem; }
+    h2.sub-head { font-size:1.2rem; }
+  }
+
+  @include mobile-first($screen-lg-min) {
+    h1 { margin:0 0 60px; font-size:4.8rem; letter-spacing:2px; }
+    h1 span { font-size:3rem; }
+    h2.sub-head { font-size:1.3rem; }
+  }
+}
+
+body.inner {
+  h1, h2 { @extend .text-center; }
+  h2 { margin-top:2em; border-bottom:1px solid rgba(white,0.2); padding-bottom:0.5em; } //color:$color-map;
+  h3 { margin-top:2em; }
+  .content-container ul {
+    padding-left:20px; margin-bottom:1.5em;
+    li { margin-bottom:1.5em; }
+  }
+}
+
+.bg-image {
+  background:url('/assets/img/img-bg.jpg') no-repeat center center fixed $color-bg; background-size:cover; position:fixed; top:0; left:0; bottom:0; right:0; opacity:1; transition:opacity 1s; z-index:-1;
+  &.unloaded { opacity:0; }
+}
+
+.icon-list {
+  list-style:none; padding:0; margin:40px 0 0; overflow:hidden; font-size:0.8em;
+  li { margin-bottom:30px; }
+  @include mobile-first($screen-sm-min) { margin:80px 0 0; }
+  .icon { font-size:4em; }
+  @include mobile-first($screen-xs-min) {
+    li { width:20%; float:left; margin-bottom:0; }
+  }
+}
+
+
+// -- other
+
+.page-head {
+  height:30px; padding:30px 25px 0; position:relative; font-size:20px;
+  a { color:white; text-decoration:none; }
+  .logo { @extend %coda; letter-spacing:2px; }
+  .menu-btn { font-size:35px; position:absolute; top:10px; right:20px; padding:5px; z-index:2; }
+}
+
+.content-container {
+  max-width:900px; padding:0 25px; margin:0 auto;
+  @include mobile-first($screen-sm-min) { padding:0 80px; }
+  @include mobile-first($screen-lg-min) { padding:0 120px; }
+}
+
+.block {
+  background:$color-bg; padding:40px 0;
+  &.extra-padd {
+    @include mobile-first($screen-sm-min) { padding:80px 0; }
+    @include mobile-first($screen-lg-min) { padding:130px 0; }
+  }
+  &.green { background:$color-map; }
+}
+
+.scroll {
+  position:absolute; bottom:20px; left:50%;
+  span {
+    height:12px; width:12px; background:white; border-radius:50%; display:block; margin-bottom:10px; opacity:0; animation:blink 1.5s linear 1s infinite alternate;
+    &.d1 { animation:blink 1.5s linear 1.1s infinite alternate; }
+    &.d2 { animation:blink 1.5s linear 1.2s infinite alternate; }
+  }
+}
+
+.ball { margin:70px auto 0; max-width:300px; @extend %respond; }
+
+.iframe-wrap {
+  position:relative; padding-bottom:56.25%; height:0; margin-top:60px;
+  iframe { border:none; position:absolute; top:0; left:0; width:100%; height:100%; }
+}
+
+.green dl dt { color:$color-bg; }
+
+dl {
+  dt { font-weight:bold; color:$color-map; }
+  dd { margin:0 0 20px; font-size:14px; }
+}
+
+.notice { background:rgba($color-link,0.8); padding:20px 25px; font-size:14px; text-align:center; color:black; font-weight:bold; }

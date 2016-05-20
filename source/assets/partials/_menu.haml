@@ -1,0 +1,27 @@
+%a.menu-close{ :'ng-click' => 'showMenu = !showMenu' }
+  %span.fa.fa-arrow-circle-right
+%ul
+  %li
+    %a{ href: '/' }
+      %span.fa.fa-fw.fa-home
+      Home
+  %li
+    %a{ href: '/basic-touch-rugby-rules.html' }
+      %span.fa.fa-fw.fa-book
+      Basic Rules
+  %li
+    %a{ href: '/helpful-tips.html' }
+      %span.fa.fa-fw.fa-info-circle
+      Helpful Tips
+  -# %li
+  -#   %a{ href: '/glossary.html' }
+  -#     %span.fa.fa-fw.fa-book
+  -#     Glossary
+  %li
+    %a{ href: 'https://www.facebook.com/groups/sltrc', target: '_blank' }
+      %span.fa.fa-fw.fa-facebook-square
+      Facebook
+  %li
+    %a{ href: 'https://goo.gl/6LNUpQ', target: '_blank' }
+      %span.fa.fa-fw.fa-map-marker
+      Location

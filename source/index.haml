@@ -1,0 +1,54 @@
+- @body_class = 'home'
+
+.bg-image.unloaded{ lazyload: '' }
+
+.intro
+  .text-center
+
+    %header
+      %span.date &horbar; Est. 2005 &horbar;
+      %h1 South London <span>Touch Rugby Club</span>
+    = partial 'assets/partials/buttons'
+
+  .scroll
+    %span
+    %span.d1
+    %span.d2
+
+.block.text-center.extra-padd
+  .content-container
+    %h2.sub-head We gather every Saturday morning on <a href="https://goo.gl/6LNUpQ" target="blank">Tooting Bec Common</a> to play mixed social touch rugby. We’re a great community of players of all ages, shapes, sizes, abilities &amp; genders.
+    %ul.icon-list
+      %li
+        .icon
+          %span.fa.fa-clock-o
+        Every Saturday<br>11am-1pm
+      %li
+        .icon
+          %span.fa.fa-money
+        £3 for pitch fees
+      %li
+        %a{ href: 'https://goo.gl/6LNUpQ' }
+          .icon
+            %span.fa.fa-map-marker
+          Tooting Bec<br>Common
+      %li
+        .icon
+          %span.fa.fa-subway
+        Nearest station<br> Balham
+      %li
+        .icon
+          %span.fa.fa-user
+        16 Years<br> or Older
+
+.block.green.extra-padd
+  .content-container
+    %h2.text-center A little about us&hellip;
+    %p We're always looking for more players for our social mixed touch rugby group. There's no need for prior experience as all <a href="/basic-touch-rugby-rules.html">rules and skills</a> can be taught whilst playing.
+    %p Past and present players have played in a wide variety of other leagues, venues and levels. So it's a great opportunity for beginners to benefit from more experienced players' knowledge. And also for more experienced players to help beginners develop their skills and learn the game.
+    %p The touch pitches are located on the Streatham side of <a href="https://goo.gl/6LNUpQ" target="_blank">Tooting Bec Common</a>, between the train tracks. The nearest postcode is SW16 1AD and the nearest stations are Balham or Streatham Hill. We play on a full size marked out Touch Rugby pitch. As the pitch is hired there is a collection of £3 per person per session. We’ll never ask you to subscribe for a season or year; it’s pay and play.
+    %p There are no fixed teams and there is no commitment needed. Just turn up when you're free and leave when you're tired. We do play most <a href="/basic-touch-rugby-rules.html">touch rules</a>, with less emphasis on penalties, but tailored to the individual and their experience playing touch.
+    %p To register, join our <a href="//www.facebook.com/groups/sltrc" target="blank">Facebook Group</a>. We look forward to seeing on the pitch on Saturday!
+    = image_tag 'img-ball.png', class: 'ball'
+
+-# = partial 'assets/partials/map'
