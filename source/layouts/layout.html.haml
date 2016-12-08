@@ -7,14 +7,14 @@
       %meta{ :name => 'description', :content => yield_content(:description) }
     - else
       %title South London Touch Rugby Club - Mixed Social Touch Every Saturday
-      %meta{ :name => 'description', :content => 'We meet every Saturday morning on Tooting Bec Common in South London to play social mixed touch rugby for fun. We\'re a friendly bunch, come join us!' }
+      %meta{ :name => 'description', :content => 'We\'re a small independent not-for-profit touch rugby club based in South West London.' }
 
     %meta{ :name => 'viewport', :content => 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' }
     %meta{ :property => 'og:type', :content => 'website' }
     %meta{ :property => 'og:title', :content => 'South London Touch Rugby Club' }
     %meta{ :property => 'og:url', :content => 'http://www.southlondontouchrugby.co.uk/' }
     %meta{ :property => 'og:image', :content => 'http://www.southlondontouchrugby.co.uk/assets/img/img-og.jpg' }
-    %meta{ :property => 'og:description', :content => 'We meet at 11am every Saturday morning on Tooting Bec Common, London to play social mixed touch rugby for fun. We\'re a friendly bunch, come join us!' }
+    %meta{ :property => 'og:description', :content => 'We\'re a small independent not-for-profit touch rugby club based in South West London.' }
     = stylesheet_link_tag 'screen'
     = stylesheet_link_tag '//fonts.googleapis.com/css?family=Roboto:400,700|Coda:800'
     = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'
@@ -34,7 +34,6 @@
         = partial 'assets/partials/menu'
 
     .content-wrap
-      = partial 'assets/partials/notice'
       = partial 'assets/partials/header'
       = yield
       = partial 'assets/partials/footer'
