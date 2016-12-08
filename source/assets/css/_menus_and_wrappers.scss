@@ -1,21 +1,84 @@
-.content-wrap  { transition:all 0.3s; position:relative; z-index:2; min-height:100vh; background:$color-bg; }
-
-body.menu-open {
-  .content-wrap { transform:translateX(-$menu-width); }
-  overflow:hidden;
-  .menu-overlay { visibility:visible; opacity:1; }
+.content-wrap {
+  transition: all 0.3s;
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  background: $color-bg;
 }
 
-.menu-overlay { position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(black,0.75); z-index:3; visibility:hidden; opacity:0; transition:opacity 0.3s; cursor:pointer; }
+body.menu-open {
+  overflow: hidden;
+
+  .content-wrap {
+    transform: translateX(-$menu-width);
+  }
+
+  .menu-overlay {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.menu-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(black, 0.75);
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+  cursor: pointer;
+}
 
 .menu-side-wrap {
-  position:fixed; top:0; right:0; bottom:0; width:$menu-width; background:$color-secondary; z-index:1;
-  .menu-side { height:100%; overflow-y:auto; }
-  .menu-close { display:block; padding:15px; text-align:center; font-size:36px; margin-bottom:10px; color:white; }
-  ul { padding:0; margin:0; list-style:none; }
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: $menu-width;
+  background: $color-secondary;
+  z-index: 1;
+
+  .menu-side {
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  .menu-close {
+    display: block;
+    padding: 15px;
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: white;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
   li a {
-    padding:10px 30px; text-transform:uppercase; display:block; font-size:14px; transition:color 0.2s; font-weight:bold; color:$color-primary;
-    .fa { margin-right:8px; color:white; }
-    &:hover { text-decoration:none; color:white; }
+    padding: 10px 30px;
+    text-transform: uppercase;
+    display: block;
+    font-size: 14px;
+    transition: color 0.2s;
+    font-weight: bold;
+    color: $color-primary;
+
+    .fa {
+      margin-right: 8px;
+      color: white;
+    }
+
+    &:hover {
+      text-decoration: none;
+      color: white;
+    }
   }
 }

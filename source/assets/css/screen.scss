@@ -1,101 +1,361 @@
 @import 'normalize';
-
-$screen-xs-min: 480px;
-$screen-sm-min: 768px;
-$screen-md-min: 992px;
-$screen-lg-min: 1200px;
-
-$margin: 4rem;
-$color-bg: #202b3c;
-$color-primary: #213450;
-$color-secondary: #fd9232;
-$color-fb: #43548c;
-$color-rules: #c0392b;
-$color-link: $color-secondary;
-$br: 10px;
-$font-size-small: 12px;
-$menu-width:200px;
-
+@import 'variables';
+@import 'animations_and_mixins';
 @import 'menus_and_wrappers';
 @import 'links_and_buttons';
-@import 'animations_and_mixins';
 
-%coda { font-family:'Coda', cursive; text-transform:uppercase; }
-%respond { display:block; width:100%; }
-.text-center { text-align:center; }
-.hidden-sm {
- display:none !important;
-  @include mobile-first($screen-lg-min) { display:inline-block !important; }
+%coda {
+  font-family: 'Coda',cursive;
+  text-transform: uppercase;
 }
 
+%respond {
+  display: block;
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.hidden-sm {
+  display: none !important;
+
+  @include mobile-first($screen-md-min) {
+    display: inline-block !important;
+  }
+}
+
+h2 {
+  line-height: 1.6;
+
+  @include mobile-first($screen-md-min) {
+    line-height: 1.8;
+  }
+}
 
 body {
-  font-family:'Roboto', sans-serif; background:$color-bg; font-size:14px; line-height:1.6; color:white;
-  @include mobile-first($screen-lg-min) { font-size:18px; }
+  font-family: 'Roboto',sans-serif;
+  background: $color-bg;
+  font-size: 14px;
+  line-height: 1.6;
+  color: white;
+
+  @include mobile-first($screen-lg-min) {
+    font-size: 18px;
+  }
 }
 
 footer {
-  padding:30px 0 30px;
-  nav { margin-bottom:40px; }
-  .footer-text { font-size:$font-size-small; }
-  @include mobile-first($screen-lg-min) { padding:60px 0; }
-  span { margin:0 10px; }
+  padding: 30px 0 30px;
+
+  nav {
+    margin-bottom: 40px;
+  }
+
+  @include mobile-first($screen-lg-min) {
+    padding: 60px 0;
+  }
+
+
+  .footer-text {
+    span {
+      font-size: $font-size-small;
+      display: block;
+      margin: 1em 0;
+
+      @include mobile-first($screen-sm-min) {
+        display: inline-block;
+        margin: 0;
+      }
+
+
+      &.hyphen {
+        margin: 0 10px;
+        display: none;
+
+        @include mobile-first($screen-sm-min) {
+          display: inline-block;
+        }
+      }
+    }
+  }
 }
 
 body.home {
-  img.logo { max-width:400px; margin:40px 40px 30px; }
-  .content-container { max-width:500px; text-align:center; }
+  img.logo {
+    max-width: 180px;
+
+    @include mobile-first($screen-md-min) {
+      max-width: 300px;
+      margin: 0 0 20px;
+    }
+  }
+
+  .content-container {
+    max-width: 670px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .head {
+    font-size: 2.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .block-100vh {
+    min-height: calc(100vh);
+    background: linear-gradient(to bottom, #202b3c 90px, #131922 100%);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 90px 0 2em;
+
+    .stripe {
+      position: absolute;
+      bottom: -60%;
+      height: 100%;
+      width: 200%;
+      left: -50%;
+      background: $color-secondary;
+      z-index: 1;
+      transform: rotate(-15deg);
+    }
+  }
+
+  hr {
+    margin: 0;
+    border: none;
+    border-bottom: 2px dashed rgba(white, 0.5);
+    background: $color-secondary;
+    box-sizing: border-box;
+  }
+
+  .icon-list {
+    list-style: none;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+
+    .fa {
+      font-size: 2em;
+      margin-bottom: 0.5rem;
+    }
+
+    li {
+      float: left;
+      width: 50%;
+      padding: 0 10px;
+      box-sizing: border-box;
+      min-height: 70px;
+      margin: 20px 0;
+      font-weight: bold;
+
+      @include mobile-first($screen-md-min) {
+        width: 20%;
+        margin: 0;
+      }
+    }
+  }
 }
 
 body.inner {
-  h1, h2 { @extend .text-center; }
-  h2 { margin-top:2em; border-bottom:1px solid rgba(white,0.2); padding-bottom:0.5em; }
-  h3 { margin-top:2em; }
+  h1, h2 {
+    @extend .text-center;
+  }
+
+  h2 {
+    margin-top: 2em;
+    border-bottom: 1px dashed rgba(white, 0.2);
+    padding-bottom: 0.5em;
+  }
+
+  h3 {
+    margin-top: 2em;
+    color: $color-secondary;
+  }
+
   .content-container ul {
-    padding-left:20px; margin-bottom:1.5em;
-    li { margin-bottom:1.5em; }
+    padding: 0;
+    margin-bottom: 1.5em;
+    list-style: none;
+
+    li {
+      margin-bottom: 1.5em;
+      position: relative;
+      padding-left: 25px;
+
+      &:before {
+        content: '\f10c';
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        transform: translate(0, 0);
+        font-size: $font-size-small;
+        color: $color-secondary;
+        position: absolute;
+        top: 5px;
+        left: 0;
+
+        @include mobile-first($screen-lg-min) {
+          top: 8px;
+        }
+      }
+    }
   }
 }
 
-// -- other
-
 .page-head {
-  height:30px; padding:30px 25px 0; position:relative; font-size:20px;
-  a { color:white; text-decoration:none; }
-  .logo { @extend %coda; letter-spacing:2px; }
-  .menu-btn { font-size:35px; position:absolute; top:10px; right:20px; padding:5px; z-index:2; }
+  height: 30px;
+  padding: 20px 25px;
+  position: fixed;
+  font-size: 20px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  background: $color-bg;
+
+  @include mobile-first($screen-md-min) {
+    padding: 30px 25px;
+  }
+
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .logo {
+    @extend %coda;
+
+    letter-spacing: 2px;
+  }
+
+  .menu-btn {
+    font-size: 35px;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    padding: 5px;
+    z-index: 2;
+
+    @include mobile-first($screen-md-min) {
+      top: 10px;
+    }
+  }
+
+  & + .block {
+    padding-top: 80px;
+
+    @include mobile-first($screen-md-min) {
+      padding-top: 90px;
+    }
+  }
 }
 
 .content-container {
-  max-width:900px; padding:0 25px; margin:0 auto;
-  @include mobile-first($screen-sm-min) { padding:0 80px; }
-  @include mobile-first($screen-lg-min) { padding:0 120px; }
+  max-width: 900px;
+  padding: 0 25px;
+  margin: 0 auto;
+
+  @include mobile-first($screen-sm-min) {
+    padding: 0 80px;
+  }
+
+
+  @include mobile-first($screen-lg-min) {
+    padding: 0 120px;
+  }
 }
 
 .block {
-  background:$color-bg; padding:40px 0;
+  background: $color-bg;
+  padding: 40px 0;
+
   &.extra-padd {
-    @include mobile-first($screen-sm-min) { padding:80px 0; }
-    @include mobile-first($screen-lg-min) { padding:130px 0; }
+    @include mobile-first($screen-sm-min) {
+      padding: 80px 0;
+    }
+
+
+    @include mobile-first($screen-lg-min) {
+      padding: 130px 0;
+    }
   }
-  &.color-secondary { background:$color-primary; }
+
+  &.color-primary {
+    background: $color-primary;
+  }
+
+  &.color-secondary {
+    background: $color-secondary;
+  }
 }
 
 .scroll {
-  position:absolute; bottom:20px; left:50%;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+
   span {
-    height:12px; width:12px; background:white; border-radius:50%; display:block; margin-bottom:10px; opacity:0; animation:blink 1.5s linear 1s infinite alternate;
-    &.d1 { animation:blink 1.5s linear 1.1s infinite alternate; }
-    &.d2 { animation:blink 1.5s linear 1.2s infinite alternate; }
+    height: 12px;
+    width: 12px;
+    background: white;
+    border-radius: 50%;
+    display: block;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: blink 1.5s linear 1s infinite alternate;
+
+    &.d1 {
+      animation: blink 1.5s linear 1.1s infinite alternate;
+    }
+
+    &.d2 {
+      animation: blink 1.5s linear 1.2s infinite alternate;
+    }
   }
 }
 
 .iframe-wrap {
-  position:relative; padding-bottom:56.25%; height:0; margin-top:60px;
-  iframe { border:none; position:absolute; top:0; left:0; width:100%; height:100%; }
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+
+  @include mobile-first($screen-md-min) {
+    margin: 2em 0;
+  }
+
+
+  iframe {
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 dl {
-  dt { font-weight:bold; color:$color-secondary; }
-  dd { margin:0 0 20px; font-size:14px; }
+  dt {
+    font-weight: bold;
+    color: $color-secondary;
+  }
+
+  dd {
+    margin: 0 0 25px;
+    font-size: 14px;
+  }
 }
