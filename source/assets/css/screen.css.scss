@@ -4,8 +4,8 @@
 @import 'menus_and_wrappers';
 @import 'links_and_buttons';
 
-%coda {
-  font-family: 'Coda',cursive;
+%display {
+  font-family: 'Alfa Slab One', cursive;
   text-transform: uppercase;
 }
 
@@ -84,10 +84,10 @@ footer {
 
 body.home {
   img.logo {
-    max-width: 180px;
+    max-width: 130px;
 
     @include mobile-first($screen-md-min) {
-      max-width: 300px;
+      max-width: 200px;
       margin: 0 0 20px;
     }
   }
@@ -144,24 +144,22 @@ body.home {
     margin: 0;
     font-size: 15px;
 
+    @include mobile-first($screen-md-min) {
+      display: flex;
+      justify-content: center;
+    }
+
     .fa {
       font-size: 2em;
       margin-bottom: 0.5rem;
     }
 
     li {
-      float: left;
-      width: 50%;
-      padding: 0 10px;
+      padding: 0 20px;
       box-sizing: border-box;
       min-height: 70px;
       margin: 20px 0;
       font-weight: bold;
-
-      @include mobile-first($screen-md-min) {
-        width: 20%;
-        margin: 0;
-      }
     }
   }
 }
@@ -237,8 +235,7 @@ body.inner {
   }
 
   .logo {
-    @extend %coda;
-
+    @extend %display;
     letter-spacing: 2px;
   }
 
@@ -300,6 +297,18 @@ body.inner {
 
   &.color-secondary {
     background: $color-secondary;
+  }
+}
+
+.gallery {
+  @include mobile-first($screen-lg-min) {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+  }
+
+  img {
+    display: block;
+    width: 100%;
   }
 }
 
